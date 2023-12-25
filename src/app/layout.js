@@ -6,8 +6,8 @@ import "bulma";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Toko Kelontong",
-  description: "Katalog daftar produk",
+  title: "Grocery Store",
+  description: "Product list catalog",
 };
 
 export default function RootLayout({ children }) {
