@@ -1,7 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
+  const router = useRouter();
   const [products, setProducts] = useState([]);
 
   async function getProductList() {
@@ -19,13 +21,15 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="p-6 flex items-center flex-col gap-y-4">
+    <div className="p-6 flex items-center flex-col gap-y-4 min-h-screen">
       <h1 className="text-white font-bold text-2xl text-center mb-4">
         Product List
       </h1>
 
       <div className="w-full">
-        <button className="button is-info">+ Add Product</button>
+        <button className="button is-info" onClick={() => router.push("/add")}>
+          + Add Product
+        </button>
       </div>
 
       <table className="table w-full">
