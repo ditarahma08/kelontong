@@ -1,4 +1,23 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function Page() {
+  const [products, setProducts] = useState([]);
+
+  async function getProductList() {
+    try {
+      const response = await fetch("http://localhost:3000/api/products");
+      const data = await response.json();
+      setProducts(data.products);
+    } catch (err) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getProductList();
+  }, []);
+
   return (
     <div className="p-6 flex items-center flex-col gap-y-4">
       <h1 className="text-white font-bold text-2xl text-center mb-4">
@@ -12,7 +31,6 @@ export default function Page() {
       <table className="table w-full">
         <thead>
           <tr>
-            <th>No</th>
             <th>Name</th>
             <th>Weight</th>
             <th>Dimension</th>
@@ -22,14 +40,19 @@ export default function Page() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>hahaishdi</td>
-            <td>dsjhfjkdshf</td>
-            <td>kjsagfjsdgfjds</td>
-            <td>kshfjksdf</td>
-            <td>kjsahjksd</td>
-            <td>kjsahfjksd</td>
-          </tr>
+          {products.map((product, index) => (
+            <tr>
+              <td>{product.name}</td>
+              <td>{product.weight}</td>
+              <td>
+                {product.width} x {product.length} x {product.height}
+              </td>
+              <td>
+                <img src={product.image} alt={product.name} width="100" />
+              </td>
+              <td>Rp{product.harga}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
