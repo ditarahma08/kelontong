@@ -1,24 +1,40 @@
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Page() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
 
+  async function getProductList() {
+    try {
+      const response = await fetch("http://localhost:3001/api/product");
+      const data = await response.json();
+      setProducts(data.products);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    getProductList();
+  }, []);
+
   return (
-    // <div className="p-6 flex items-center flex-col gap-y-4 min-h-screen">
-    <div className="p-6">
-      <h1 className="text-white font-bold text-2xl text-center mb-4">
-        Product List
+    <div className="p-6 min-vh-100 d-flex flex-column align-items-center">
+      <h1 className="mb-4">
+        <b>Product List</b>
       </h1>
 
-      <div className="w-full">
-        <button className="button is-info" onClick={() => router.push("/add")}>
+      <div className="w-100">
+        <button
+          className="button is-info mb-4"
+          onClick={() => router.push("/add")}
+        >
           + Add Product
         </button>
       </div>
 
-      <table className="table w-full">
+      <table className="table w-100">
         <thead>
           <tr>
             <th>Name</th>
@@ -46,8 +62,8 @@ export default function Page() {
         </tbody>
       </table>
 
-      <div className="flex gap-x-4">
-        <button className="button">Previous</button>
+      <div className="d-flex">
+        <button className="button mr-4">Previous</button>
         <button className="button">Next</button>
       </div>
     </div>

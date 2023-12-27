@@ -12,75 +12,75 @@ export default function Page() {
   function submitProduct() {}
 
   return (
-    <div className="min-h-screen p-6 flex flex-col items-center gap-y-4">
-      <h1 className="text-white font-bold text-2xl text-center mb-4">
-        Add New Product
+    <div className="min-vh-100 p-6 d-flex flex-column align-items-center">
+      <h1 className="mb-4">
+        <b>Add New Product</b>
       </h1>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Name</label>
+      <div className="d-flex flex-column w-100 mb-2">
+        <label className="text-white mb-4">Name</label>
         <input
-          className="input !w-64 w"
+          className="input"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Weight (gr)</label>
+      <div className="d-flex flex-column w-100 mb-2">
+        <label className="text-white mb-4">Weight (gr)</label>
         <input
-          className="input !w-64"
+          className="input"
           type="number"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Width (cm)</label>
+      <div className="d-flex flex-column w-100 mb-2">
+        <label className="text-white mb-4">Width (cm)</label>
         <input
-          className="input !w-64"
+          className="input"
           type="number"
           value={width}
           onChange={(e) => setWidth(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Length (cm)</label>
+      <div className="d-flex flex-column w-100 mb-2">
+        <label className="text-white mb-4">Length (cm)</label>
         <input
-          className="input !w-64"
+          className="input"
           type="number"
           value={length}
           onChange={(e) => setLength(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Height (cm)</label>
+      <div className="d-flex flex-column w-100 mb-2">
+        <label className="text-white mb-4">Height (cm)</label>
         <input
-          className="input !w-64"
+          className="input"
           type="number"
           value={height}
           onChange={(e) => setHeight(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Image Link</label>
+      <div className="d-flex flex-column w-100 mb-2">
+        <label className="text-white mb-4">Image Link</label>
         <input
-          className="input !w-64"
+          className="input"
           type="text"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-between w-96">
-        <label className="text-white">Price</label>
+      <div className="d-flex flex-column w-100 mb-4">
+        <label className="text-white mb-4">Price</label>
         <input
-          className="input !w-64"
+          className="input"
           type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
