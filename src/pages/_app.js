@@ -1,5 +1,6 @@
-import '@/styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.css'
+import "@/styles/globals.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bulma";
 import { wrapper, store } from "../../store/store";
 import { Provider } from "react-redux";
 
